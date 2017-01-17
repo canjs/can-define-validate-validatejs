@@ -1,0 +1,66 @@
+{
+  "name": "can-define-validate-validatejs",
+  "version": "0.0.0",
+  "description": "Validation helpers for can-define maps and lists.",
+  "main": "can-define-validate-validatejs.js",
+  "scripts": {
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update dist for release\" && git checkout -b release && git add -f dist/",
+    "postversion": "git push --tags && git checkout master && git branch -D release && git push",
+    "testee": "testee test.html --browsers firefox",
+    "test": "npm run jshint && npm run testee",
+    "jshint": "jshint *.js --config",
+    "release:pre": "npm version prerelease && npm run build && npm publish",
+    "release:patch": "npm version patch && npm run build && npm publish",
+    "release:minor": "npm version minor && npm run build && npm publish",
+    "release:major": "npm version major && npm run build && npm publish",
+    "build": "node build.js",
+    "document": "bit-docs",
+    "develop": "http-server -c-1 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canjs/can-define-validate-validatejs.git"
+  },
+  "keywords": [
+    "Validate",
+    "plugin",
+    "canjs"
+  ],
+  "author": {
+    "name": "Bitovi"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/canjs/can-define-validate-validatejs/issues"
+  },
+  "homepage": "https://github.com/canjs/can-define-validate-validatejs",
+  "devDependencies": {
+    "bit-docs": "0.0.7",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.4",
+    "steal": "^1.0.8",
+    "steal-qunit": "^1.0.0",
+    "steal-tools": "^1.0.1",
+    "testee": "^0.3.0"
+  },
+  "browser": {},
+  "steal": {
+    "ignoreBrowser": true,
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "steal-tools"
+    ],
+    "npmAlgorithm": "flat",
+    "npmDependencies": [
+      "steal-qunit"
+    ],
+    "transpiler": "babel"
+  },
+  "dependencies": {
+    "can-define": "^1.0.15",
+    "can-util": "^3.2.2",
+    "can-validate-validatejs": "0.0.2"
+  }
+}
