@@ -8,7 +8,9 @@ var isEmptyObject = require("can-util/js/is-empty-object/is-empty-object");
 var getMapConstraints = function (Map) {
     var constraints = {};
     each(Map.prototype._define.definitions, function (prop, key) {
-        constraints[key] = prop.validate;
+        if (prop.validate && !isEmptyObject(prop.validate)) {
+            constraints[key] = prop.validate;
+        }
     });
     return constraints;
 };
@@ -18,19 +20,22 @@ var validateMap = function (Map, validator) {
 
     Map.prototype.testSet = function() {
         var values = {};
+        var useNewObject = false;
         if (arguments.length) {
             // Check if testing many values or just one
-            if (typeof arguments[0] === 'object') {
+            if (typeof arguments[0] === 'object' && Boolean(arguments[0])) {
                 values = arguments[0];
                 useNewObject = Boolean(arguments[1]);
-            } else {
+            }
+
+            // Check if testing single value
+            if (typeof arguments[0] === 'string') {
                 values[arguments[0]] = arguments[1];
-                useNewObject = false;
             }
 
             // Merge values with existing map or with a new map
             if (useNewObject) {
-                values = new Map.prototype.constructor(values);
+                values = new Map(values);
             } else {
                 var mapClone = this.serialize();
                 assign(mapClone, values);

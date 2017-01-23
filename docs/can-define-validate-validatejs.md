@@ -1,20 +1,17 @@
 @module {function} can-define-validate-validatejs
 @parent can-ecosystem
-@group can-define-validate-validatejs/DefineMap.prototype DefineMap.prototype
+@group can-define-validate-validatejs.defineMap DefineMap.prototype
 @package ../package.json
 
-@description Adds helpful validation methods and observables to a [can-define/map/map]
+@description Adds validation methods and observables to a [can-define/map/map]
 using [validate.js](https://validatejs.org/).
 
-@signature `defineValidator(Map)`
+@signature `defineValidate(Map)`
 
   Checks for ValidateJS constraints and attaches useful methods.
 
-  @param {Object} Map The [can-define/map/map] constructor. Methods will be attached
-  to the prototype of this map.
-
-  ```javascript
-  var defineValidator = require('can-define-validate-validatejs');
+  ```js
+  var defineValidate = require('can-define-validate-validatejs');
   var User = DefineMap.extend({
       name: {
           validate: {
@@ -23,17 +20,21 @@ using [validate.js](https://validatejs.org/).
       }
   });
   // Attach methods to any instance created of `User`
-  defineValidator(User);
+  defineValidate(User);
+  var user = new User();
+  user.errors();//-> [{name: ['is required']}]
   ```
+
+  @param {Object} Map The [can-define/map/map] constructor. Adds [can-define-validate-validatejs.errors] and [can-define-validate-validatejs.test-set] methods to the prototype of this map.
 
 @body
 
 ## Usage
 
-The target Define Map must have constraints on at least one property. The validate
-property must match the structure used by Validate.JS [constraints](https://validatejs.org/#validators).
+Any validation properties must match the structure used by Validate.JS [constraints](https://validatejs.org/#validators).
 
-```javascript
+For example...
+```js
 var User = DefineMap.extend({
     name: {
         validate: {
@@ -43,22 +44,30 @@ var User = DefineMap.extend({
 });
 ```
 
-Initialize the validators on the Define Map by calling the function
+Initialize the validators on the Define Map by calling the `defineValidate` function.
 
-```javascript
-defineValidator(User);
+```js
+defineValidate(User);
 ```
 
 When an instance is created, the instance will have validation properties that can be used in other modules or in templates
 
 In a module...
-```javascript
-if (user.errors()) {
-    alert('Cannot continue, please check form for errors');
+```js
+var user = new User();
+
+var onSubmit = function () {
+    if (user.errors()) {
+        alert('Cannot continue, please check form for errors');
+    }
 }
 ```
 
 In a template...
 ```html
-<input type="submit" {{#if user.errors()}}disabled{{/if}}>
+<input type="submit" {$disabled}="user.errors()"/>
 ```
+
+## Demo
+
+@demo demos/can-validate/credit-card.html
