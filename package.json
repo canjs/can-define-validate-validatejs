@@ -63,6 +63,6 @@
     "can-define": "^1.0.15",
     "can-util": "^3.2.2",
     "can-validate": "^1.0.1",
-    "can-validate-validatejs": "^0.0.2"
+    "can-validate-validatejs": "^0.0.4"
   }
 }
