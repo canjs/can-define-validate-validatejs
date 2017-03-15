@@ -92,6 +92,12 @@ QUnit.test('calling errors with string returns error for that key', function () 
     }]);
 });
 
+QUnit.test('calling errors with string returns undefined when no errors are set', function () {
+    var locator = new Locator({city: 'angier', state: 'NC', zipCode: 27501});
+    var errors = locator.errors('state');
+    QUnit.notOk(errors, 'Errors is undefined');
+});
+
 QUnit.test('errors with object returns errors for requested keys', function () {
     var locator = new Locator({city: 'angier'});
     var expectedErrors = [{

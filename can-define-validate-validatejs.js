@@ -54,8 +54,9 @@ var validateMap = function (Map, validator) {
         if(arguments.length) {
             var errorsObj = formatErrors(_errors, 'errors-object');
             errors = [];
+
             each(arguments, function (key) {
-                [].push.apply(errors, errorsObj[key]);
+                [].push.apply(errors, errorsObj ? errorsObj[key]: []);
             });
             errors = errors.length > 0 ? errors : undefined;
         } else {
