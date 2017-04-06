@@ -73,6 +73,8 @@ var validateMap = function (Map, validator) {
     }, mapDefinition.dataInitializers, mapDefinition.computedInitializers);
 };
 
+exports.validatejs = validate.validatejs;
+
 module.exports = function(Map) {
     var constraints = getMapConstraints(Map);
     var validator = validate.many(constraints);
