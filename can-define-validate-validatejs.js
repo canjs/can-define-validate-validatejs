@@ -73,9 +73,7 @@ var validateMap = function (Map, validator) {
     }, mapDefinition.dataInitializers, mapDefinition.computedInitializers);
 };
 
-exports.validatejs = validate.validatejs;
-
-module.exports = function(Map) {
+var decorator = function(Map) {
     var constraints = getMapConstraints(Map);
     var validator = validate.many(constraints);
 
@@ -84,3 +82,7 @@ module.exports = function(Map) {
         return formatErrors(errors, 'errors');
     });
 };
+
+decorator.validatejs = validate.validatejs;
+
+module.exports = decorator;
