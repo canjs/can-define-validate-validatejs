@@ -60,7 +60,7 @@
     "transpiler": "babel"
   },
   "dependencies": {
-    "can-define": "^1.0.15",
+    "can-define": "1.0.25",
     "can-util": "^3.2.2",
     "can-validate": "^1.0.2",
     "can-validate-validatejs": "^0.0.6"
