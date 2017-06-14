@@ -61,8 +61,8 @@
   },
   "dependencies": {
     "can-define": "^1.2.0-pre.4",
-    "can-util": "^3.2.2",
-    "can-validate": "^1.0.2",
-    "can-validate-validatejs": "^0.0.6"
+    "can-util": "^3.9.0-pre.4",
+    "can-validate": "^1.1.0-pre.0",
+    "can-validate-validatejs": "0.1.0-pre.0"
   }
 }
