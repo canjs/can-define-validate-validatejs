@@ -39,7 +39,7 @@
     "bit-docs": "^0.0.7",
     "can-compute": "^3.0.5",
     "http-server": "^0.9.0",
-    "jshint": "^2.9.4",
+    "jshint": "^2.9.5",
     "steal": "^1.0.8",
     "steal-qunit": "^1.0.0",
     "steal-tools": "^1.0.1",
