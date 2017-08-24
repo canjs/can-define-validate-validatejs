@@ -15,7 +15,6 @@
     "release:minor": "npm version minor && npm run build && npm publish",
     "release:major": "npm version major && npm run build && npm publish",
     "build": "node build.js",
-    "document": "bit-docs",
     "develop": "http-server -c-1"
   },
   "repository": {
