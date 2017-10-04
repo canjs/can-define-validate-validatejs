@@ -1,6 +1,6 @@
 {
   "name": "can-define-validate-validatejs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Validation helpers for can-define maps and lists.",
   "main": "can-define-validate-validatejs.js",
   "scripts": {
@@ -37,14 +37,14 @@
   "homepage": "https://github.com/canjs/can-define-validate-validatejs",
   "devDependencies": {
     "bit-docs": "^0.0.7",
-    "can-compute": "^3.1.0",
+    "can-compute": "^3.3.4",
     "detect-cyclic-packages": "^1.1.0",
-    "http-server": "^0.9.0",
-    "jshint": "^2.9.4",
-    "steal": "^1.0.8",
+    "http-server": "^0.10.0",
+    "jshint": "^2.9.5",
+    "steal": "^1.5.14",
     "steal-qunit": "^1.0.0",
-    "steal-tools": "^1.0.1",
-    "testee": "^0.3.0"
+    "steal-tools": "^1.9.0",
+    "testee": "^0.7.0"
   },
   "browser": {},
   "steal": {
@@ -61,7 +61,7 @@
     "transpiler": "babel"
   },
   "dependencies": {
-    "can-define": "^1.2.0",
+    "can-define": "^1.4.7",
     "can-util": "^3.9.0",
     "can-validate": "^1.1.0",
     "can-validate-validatejs": "0.1.0"
