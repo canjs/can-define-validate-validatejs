@@ -1,5 +1,6 @@
 @module {function} can-define-validate-validatejs
-@parent can-ecosystem
+@parent can-data-validation
+@collection can-ecosystem
 @group can-define-validate-validatejs.defineMap DefineMap.prototype
 @package ../package.json
 
