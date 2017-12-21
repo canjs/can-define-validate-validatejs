@@ -63,7 +63,7 @@
   "dependencies": {
     "can-define": "^1.4.7",
     "can-util": "^3.9.0",
-    "can-validate": "^1.1.0",
+    "can-validate": "1.1.1",
     "can-validate-validatejs": "^0.1.0"
   }
 }
