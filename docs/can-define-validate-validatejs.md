@@ -34,7 +34,8 @@ using [validate.js](https://validatejs.org/).
 
 Any validation properties must match the structure used by Validate.JS [constraints](https://validatejs.org/#validators).
 
-For example...
+For example:
+
 ```js
 var User = DefineMap.extend({
     name: {
@@ -53,7 +54,8 @@ defineValidate(User);
 
 When an instance is created, the instance will have validation properties that can be used in other modules or in templates
 
-In a module...
+In a module:
+
 ```js
 var user = new User();
 
@@ -61,12 +63,13 @@ var onSubmit = function () {
     if (user.errors()) {
         alert('Cannot continue, please check form for errors');
     }
-}
+};
 ```
 
-In a template...
+In a template:
+
 ```html
-<input type="submit" {$disabled}="user.errors()"/>
+<input type="submit" disabled:from="user.errors()"/>
 ```
 
 ## Demo
