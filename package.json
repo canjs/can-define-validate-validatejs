@@ -37,7 +37,7 @@
   "homepage": "https://github.com/canjs/can-define-validate-validatejs",
   "devDependencies": {
     "bit-docs": "^0.0.8",
-    "can-compute": "^4.0.0-pre.6",
+    "can-compute": "^4.0.0",
     "detect-cyclic-packages": "^1.1.0",
     "http-server": "^0.10.0",
     "jshint": "^2.9.5",
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "can-assign": "^1.1.1",
-    "can-define": "^2.0.0-pre.21",
+    "can-define": "^2.0.0",
     "can-reflect": "^1.11.1",
     "can-util": "^3.9.0",
     "can-validate": "^1.1.0",
