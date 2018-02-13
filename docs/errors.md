@@ -33,7 +33,7 @@ The `errors` method retrieves errors from validator.
           validate: {
               presence: true
           }
-      }
+      },
       age: {
           validate: {
               presence: true,
