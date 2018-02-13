@@ -11,15 +11,15 @@ Tests value changes against constraints. Does not set errors on map instance.
   @return {can-validate.errors} Will return `undefined` if map is valid.
   Otherwise, will return an array of [can-validate/types/errors].
 
-  ```js
-    var Person = new DefineMap({
+  ```javascript
+    const Person = new DefineMap({
         name: {
             validate: {
                 presence: true
             }
         }
     });
-    var person = new Person();
+    const person = new Person();
     person.testSet();
     // returns: [{message: "is required", related: "name"}]
   ```
@@ -27,15 +27,15 @@ Tests value changes against constraints. Does not set errors on map instance.
 @signature `map.testSet(keyName, value)`
 
   Changes `keyName`'s value in the map instance clone. Then checks if the object is valid.
-  ```js
-  var Person = new DefineMap({
+  ```javascript
+  const Person = new DefineMap({
   name: {
       validate: {
           presence: true
       }
   }
   });
-  var person = new Person({name: 'Juan'});
+  const person = new Person({name: 'Juan'});
   person.testSet('name', '');
   //=> [{message: "is required", related: "name"}]
   ```
@@ -51,8 +51,8 @@ Tests value changes against constraints. Does not set errors on map instance.
   Replaces many values on the map instance clone. Making `useNewInstance` set to
   `true` will create a new instance of the map and test changes on the clean instance.
 
-  ```js
-  var Person = new DefineMap({
+  ```javascript
+  const Person = new DefineMap({
       name: {
           validate: {
               presence: true
@@ -64,7 +64,7 @@ Tests value changes against constraints. Does not set errors on map instance.
           }
       }
   });
-  var person = new Person({name: 'Juan', age: 35});
+  const person = new Person({name: 'Juan', age: 35});
 
   // this returns [{message: "is required", related: "name"}]
   person.testSet({name: ''});

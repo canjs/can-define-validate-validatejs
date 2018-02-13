@@ -11,9 +11,9 @@ using [validate.js](https://validatejs.org/).
 
   Checks for ValidateJS constraints and attaches useful methods.
 
-  ```js
-  var defineValidate = require('can-define-validate-validatejs');
-  var User = DefineMap.extend({
+  ```javascript
+  import defineValidate from 'can-define-validate-validatejs';
+  const User = DefineMap.extend({
       name: {
           validate: {
               presence: true
@@ -22,7 +22,7 @@ using [validate.js](https://validatejs.org/).
   });
   // Attach methods to any instance created of `User`
   defineValidate(User);
-  var user = new User();
+  const user = new User();
   user.errors();//-> [{name: ['is required']}]
   ```
 
@@ -36,8 +36,8 @@ Any validation properties must match the structure used by Validate.JS [constrai
 
 For example:
 
-```js
-var User = DefineMap.extend({
+```javascript
+const User = DefineMap.extend({
     name: {
         validate: {
             presence: true
@@ -48,7 +48,7 @@ var User = DefineMap.extend({
 
 Initialize the validators on the Define Map by calling the `defineValidate` function.
 
-```js
+```javascript
 defineValidate(User);
 ```
 
@@ -56,10 +56,10 @@ When an instance is created, the instance will have validation properties that c
 
 In a module:
 
-```js
-var user = new User();
+```javascript
+const user = new User();
 
-var onSubmit = function () {
+const onSubmit = function () {
     if (user.errors()) {
         alert('Cannot continue, please check form for errors');
     }

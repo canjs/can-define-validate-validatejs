@@ -7,15 +7,15 @@ The `errors` method retrieves errors from validator.
 
   Returns all errors for the current map instance.
 
-  ```js
-  var Person = new DefineMap({
+  ```javascript
+  const Person = new DefineMap({
       name: {
           validate: {
               presence: true
           }
       }
   });
-  var person = new Person();
+  const person = new Person();
   person.errors();
   //-> [{message: "is required", related: "name"}]
   ```
@@ -27,8 +27,8 @@ The `errors` method retrieves errors from validator.
 
   Returns errors for the specified keys from current map instance.
 
-  ```js
-  var Person = new DefineMap({
+  ```javascript
+  const Person = new DefineMap({
       name: {
           validate: {
               presence: true
@@ -41,7 +41,7 @@ The `errors` method retrieves errors from validator.
           }
       }
   });
-  var person = new Person();
+  const person = new Person();
   person.errors('name');
   //-> [{message: "is required", related: "name"}]
   ```
