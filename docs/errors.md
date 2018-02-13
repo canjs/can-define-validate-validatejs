@@ -7,17 +7,17 @@ The `errors` method retrieves errors from validator.
 
   Returns all errors for the current map instance.
 
-  ```javascript
-  const Person = new DefineMap({
-      name: {
-          validate: {
-              presence: true
-          }
-      }
-  });
-  const person = new Person();
-  person.errors();
-  //-> [{message: "is required", related: "name"}]
+  ```js
+const Person = new DefineMap({
+	name: {
+		validate: {
+			presence: true
+		}
+	}
+});
+const person = new Person();
+person.errors();
+//-> [{message: "is required", related: "name"}]
   ```
 
   @return {can-validate.errors} Will return `undefined` if map is valid.
@@ -27,23 +27,23 @@ The `errors` method retrieves errors from validator.
 
   Returns errors for the specified keys from current map instance.
 
-  ```javascript
-  const Person = new DefineMap({
-      name: {
-          validate: {
-              presence: true
-          }
-      },
-      age: {
-          validate: {
-              presence: true,
-              numericality: true
-          }
-      }
-  });
-  const person = new Person();
-  person.errors('name');
-  //-> [{message: "is required", related: "name"}]
+  ```js
+const Person = new DefineMap({
+	name: {
+		validate: {
+			presence: true
+		}
+	},
+	age: {
+		validate: {
+			presence: true,
+			numericality: true
+		}
+	}
+});
+const person = new Person();
+person.errors('name');
+//-> [{message: "is required", related: "name"}]
   ```
 
   @param {Array<string>} [propName] The property key to retrieve errors for.

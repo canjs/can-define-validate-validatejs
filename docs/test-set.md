@@ -11,33 +11,33 @@ Tests value changes against constraints. Does not set errors on map instance.
   @return {can-validate.errors} Will return `undefined` if map is valid.
   Otherwise, will return an array of [can-validate/types/errors].
 
-  ```javascript
-    const Person = new DefineMap({
-        name: {
-            validate: {
-                presence: true
-            }
-        }
-    });
-    const person = new Person();
-    person.testSet();
-    // returns: [{message: "is required", related: "name"}]
+  ```js
+const Person = new DefineMap({
+	name: {
+		validate: {
+			presence: true
+		}
+	}
+});
+const person = new Person();
+person.testSet();
+// returns: [{message: "is required", related: "name"}]
   ```
 
 @signature `map.testSet(keyName, value)`
 
   Changes `keyName`'s value in the map instance clone. Then checks if the object is valid.
-  ```javascript
-  const Person = new DefineMap({
-  name: {
-      validate: {
-          presence: true
-      }
-  }
-  });
-  const person = new Person({name: 'Juan'});
-  person.testSet('name', '');
-  //=> [{message: "is required", related: "name"}]
+  ```js
+const Person = new DefineMap({
+	name: {
+		validate: {
+			presence: true
+		}
+	}
+});
+const person = new Person({name: 'Juan'});
+person.testSet('name', '');
+//=> [{message: "is required", related: "name"}]
   ```
 
   @param {string} keyName The property key to test
@@ -51,26 +51,26 @@ Tests value changes against constraints. Does not set errors on map instance.
   Replaces many values on the map instance clone. Making `useNewInstance` set to
   `true` will create a new instance of the map and test changes on the clean instance.
 
-  ```javascript
-  const Person = new DefineMap({
-      name: {
-          validate: {
-              presence: true
-          }
-      },
-      age: {
-          validate: {
-              numericality: true
-          }
-      }
-  });
-  const person = new Person({name: 'Juan', age: 35});
+  ```js
+const Person = new DefineMap({
+	name: {
+		validate: {
+			presence: true
+		}
+	},
+	age: {
+		validate: {
+			numericality: true
+		}
+	}
+});
+const person = new Person({name: 'Juan', age: 35});
 
-  // this returns [{message: "is required", related: "name"}]
-  person.testSet({name: ''});
+// this returns [{message: "is required", related: "name"}]
+person.testSet({name: ''});
 
-  //this returns [{message: "is required", related: "name"}]
-  person.testSet({age: 35}, true);
+//this returns [{message: "is required", related: "name"}]
+person.testSet({age: 35}, true);
   ```
 
   @param {object} props An object of key/value pairs, where `key` is a property in
@@ -91,6 +91,6 @@ being set on the map instance when using `testSet`. This means that errors retur
 
 This behavior can be controlled when testing multiple values by passing `true` for `useNewInstance`. This will test values with a new instance of the map constructor, allowing better control of what values are tested.
 
-```javascript
+```js
 map.testSet({name: '', age: 100}, true);
 ```
