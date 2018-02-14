@@ -12,33 +12,35 @@ Tests value changes against constraints. Does not set errors on map instance.
   Otherwise, will return an array of [can-validate/types/errors].
 
   ```js
-const Person = new DefineMap({
+const Person = new DefineMap( {
 	name: {
 		validate: {
 			presence: true
 		}
 	}
-});
+} );
 const person = new Person();
 person.testSet();
+
 // returns: [{message: "is required", related: "name"}]
-  ```
+```
 
 @signature `map.testSet(keyName, value)`
 
   Changes `keyName`'s value in the map instance clone. Then checks if the object is valid.
   ```js
-const Person = new DefineMap({
+const Person = new DefineMap( {
 	name: {
 		validate: {
 			presence: true
 		}
 	}
-});
-const person = new Person({name: 'Juan'});
-person.testSet('name', '');
+} );
+const person = new Person( { name: "Juan" } );
+person.testSet( "name", "" );
+
 //=> [{message: "is required", related: "name"}]
-  ```
+```
 
   @param {string} keyName The property key to test
   @param {*} value The new value to test for `keyName`.
@@ -52,7 +54,7 @@ person.testSet('name', '');
   `true` will create a new instance of the map and test changes on the clean instance.
 
   ```js
-const Person = new DefineMap({
+const Person = new DefineMap( {
 	name: {
 		validate: {
 			presence: true
@@ -63,15 +65,15 @@ const Person = new DefineMap({
 			numericality: true
 		}
 	}
-});
-const person = new Person({name: 'Juan', age: 35});
+} );
+const person = new Person( { name: "Juan", age: 35 } );
 
 // this returns [{message: "is required", related: "name"}]
-person.testSet({name: ''});
+person.testSet( { name: "" } );
 
 //this returns [{message: "is required", related: "name"}]
-person.testSet({age: 35}, true);
-  ```
+person.testSet( { age: 35 }, true );
+```
 
   @param {object} props An object of key/value pairs, where `key` is a property in
   the map instance that will update to the new `value`.
@@ -92,5 +94,5 @@ being set on the map instance when using `testSet`. This means that errors retur
 This behavior can be controlled when testing multiple values by passing `true` for `useNewInstance`. This will test values with a new instance of the map constructor, allowing better control of what values are tested.
 
 ```js
-map.testSet({name: '', age: 100}, true);
+map.testSet( { name: "", age: 100 }, true );
 ```
