@@ -12,19 +12,20 @@ using [validate.js](https://validatejs.org/).
   Checks for ValidateJS constraints and attaches useful methods.
 
   ```js
-  var defineValidate = require('can-define-validate-validatejs');
-  var User = DefineMap.extend({
-      name: {
-          validate: {
-              presence: true
-          }
-      }
-  });
-  // Attach methods to any instance created of `User`
-  defineValidate(User);
-  var user = new User();
-  user.errors();//-> [{name: ['is required']}]
-  ```
+import defineValidate from "can-define-validate-validatejs";
+const User = DefineMap.extend( {
+	name: {
+		validate: {
+			presence: true
+		}
+	}
+} );
+
+// Attach methods to any instance created of `User`
+defineValidate( User );
+const user = new User();
+user.errors();//-> [{name: ['is required']}]
+```
 
   @param {Object} Map The [can-define/map/map] constructor. Adds [can-define-validate-validatejs.errors] and [can-define-validate-validatejs.test-set] methods to the prototype of this map.
 
@@ -37,19 +38,19 @@ Any validation properties must match the structure used by Validate.JS [constrai
 For example:
 
 ```js
-var User = DefineMap.extend({
-    name: {
-        validate: {
-            presence: true
-        }
-    }
-});
+const User = DefineMap.extend( {
+	name: {
+		validate: {
+			presence: true
+		}
+	}
+} );
 ```
 
 Initialize the validators on the Define Map by calling the `defineValidate` function.
 
 ```js
-defineValidate(User);
+defineValidate( User );
 ```
 
 When an instance is created, the instance will have validation properties that can be used in other modules or in templates
@@ -57,12 +58,12 @@ When an instance is created, the instance will have validation properties that c
 In a module:
 
 ```js
-var user = new User();
+const user = new User();
 
-var onSubmit = function () {
-    if (user.errors()) {
-        alert('Cannot continue, please check form for errors');
-    }
+const onSubmit = function() {
+	if ( user.errors() ) {
+		alert( "Cannot continue, please check form for errors" );
+	}
 };
 ```
 
