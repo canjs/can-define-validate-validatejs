@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "can-assign": "^1.1.1",
-    "can-define": "^2.0.0",
+    "can-define": "^2.2.4",
     "can-reflect": "^1.11.1",
     "can-util": "^3.9.0",
     "can-validate": "^1.1.0",
