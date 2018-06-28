@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/canjs/can-define-validate-validatejs",
   "devDependencies": {
-    "bit-docs": "^0.0.8",
+    "bit-docs": "^0.0.9",
     "can-compute": "^4.0.0",
     "detect-cyclic-packages": "^1.1.0",
     "http-server": "^0.10.0",
