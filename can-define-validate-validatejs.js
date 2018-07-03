@@ -3,12 +3,11 @@ var define = require("can-define");
 var assign = require("can-assign");
 var canReflect = require("can-reflect");
 var formatErrors = require("can-validate").formatErrors;
-var isEmptyObject = require("can-util/js/is-empty-object/is-empty-object");
 
 var getMapConstraints = function(Map) {
 	var constraints = {};
 	canReflect.eachKey(Map.prototype._define.definitions, function(prop, key) {
-		if (prop.validate && !isEmptyObject(prop.validate)) {
+		if (prop.validate && canReflect.size(prop.validate)!== 0) {
 			constraints[key] = prop.validate;
 		}
 	});
