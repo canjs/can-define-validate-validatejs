@@ -1,3 +1,4 @@
+"use strict";
 var validate = require("can-validate-validatejs");
 var define = require("can-define");
 var assign = require("can-assign");
