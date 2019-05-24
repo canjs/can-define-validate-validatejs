@@ -1,6 +1,6 @@
 {
   "name": "can-define-validate-validatejs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Validation helpers for can-define maps and lists.",
   "main": "can-define-validate-validatejs.js",
   "scripts": {
